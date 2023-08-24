@@ -1,3 +1,105 @@
-<h1>
-    Home PAge
-</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .login {
+            justify-content: center;
+            text-align: center;
+            height: 100%;
+            max-height: 600px;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .login input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .login button[type="submit"] {
+            justify-content: center;
+            text-align: center;
+            width: 50%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            margin: 10px;
+            
+        }
+
+        .login button:hover {
+            background-color: #0069d9;
+            cursor: pointer;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .login div {
+            margin-top: 10px;
+            font-weight: bold;
+            text-align: center;
+            color: #007bff;
+        }
+        .back-button{
+            margin-top: 10px;
+        }
+        .back-button a{
+            font-weight: bold;
+            text-align: center;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="login">
+            <form action="{{ url_for('predict')}}" method="post">
+                <input type="text" name="Age (Days)" placeholder="Age (Days)" /> <br>
+                <input type="text" name="Hemoglobin  Level (g/dL)" placeholder="Hemoglobin  Level (g/dL)" /> <br>
+                <input type="text" name="Transfusion Volume (mL)" placeholder="Transfusion Volume (mL)" /> <br>
+                <button type="submit">Predict</button> <br>
+            </form>
+
+            <div class="login">
+                {{prediction_text}}
+            </div>
+                <div class="back-button">
+                    <a href="{{ url_for('home') }}">Back to Home</a>
+                </div>
+        </div>
+    </div>
+
+</body>
+</html>
