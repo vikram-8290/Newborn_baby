@@ -29,7 +29,17 @@ Overall, project aims to provide a user-friendly interface to predict post-trans
 4. IDLE
 5. GitCLI
 
-create an Environment 
+# create an Environment 
 ```
     conda create -p venv python=3.7.8 -y
+```
+
+
+# Run Locally
+
+Navigate to The Folder 
+
+Run
+```
+python3 app.py
 ```

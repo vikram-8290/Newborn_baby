@@ -21,7 +21,7 @@ def predict_api():
 
 @app.route('/predict',methods=['POST'])
 def predict():
-    k = '98.2%'
+    k = 98.2
     data = [float(x) for x in request.form.values()]
     output = regmodel.predict([np.array(data)])
     original_hemoglobin = data[2]  # Assuming original hemoglobin is at index 2
@@ -29,9 +29,9 @@ def predict():
     #Handling The Case Of Original Hemoglobin Level Is Too Low To Calculate Percentage Change
     if original_hemoglobin > 0.01:  # Adjust the threshold as needed
         prediction_percentage = abs((post_transfusion_hemoglobin - original_hemoglobin) / original_hemoglobin) * 100
-        return render_template('index.html', prediction_text='Predicted Value is {} Predicted percentage  is {:.2f}% '.format(post_transfusion_hemoglobin,prediction_percentage))
+        return render_template('index.html', prediction_text='Predicted Value of Post-Hemoglobin is {:.2f}\nPredicted percentage of Post-Hemoglobin is {:.2f}% '.format(post_transfusion_hemoglobin,prediction_percentage))
     else:
-        return render_template('index.html', prediction_text='Predicted Value is {} Predicted percentage is {} '.format(post_transfusion_hemoglobin, k))
+        return render_template('index.html', prediction_text='Predicted Value of Post-Hemoglobin is  {:.2f}\nPredicted percentage of Post-Hemoglobin is {:.2f}% '.format(post_transfusion_hemoglobin, k))
 
 if __name__ == "__main__":
     app.run(debug=True) 

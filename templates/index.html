@@ -13,13 +13,16 @@
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
+            overflow: hidden;
         
         }
         .container{
+            margin: 0;
+            padding: auto;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            min-height: 60vh;
         }
         .login {
             justify-content: center;
@@ -27,15 +30,15 @@
             height: 100%;
             max-height: 600px;
             width: 100%;
-            max-width: 400px;
-            margin: 0 auto;
+            max-width: 450px;
+            margin: 0 0;
             padding: 20px;
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
 
-        .login input[type="text"] {
+        .login input[type="text"],select {
             width: 100%;
             padding: 10px;
             margin-bottom: 10px;
@@ -78,17 +81,67 @@
             color: #007bff;
             text-decoration: none;
         }
+        .heading{
+            text-align: center;
+            margin-top: 10%;
+            font-weight: bold;
+            margin-bottom: 0;
+            color: #007bff;
+        }
 
     </style>
     <title>Document</title>
 </head>
 <body>
+    <div class="heading">
+        <h1>Neonatal Transfusion Prediction</h1>
+    </div>
     <div class="container">
         <div class="login">
             <form action="{{ url_for('predict')}}" method="post">
-                <input type="text" name="Age (Days)" placeholder="Age (Days)" /> <br>
-                <input type="text" name="Hemoglobin  Level (g/dL)" placeholder="Hemoglobin  Level (g/dL)" /> <br>
-                <input type="text" name="Transfusion Volume (mL)" placeholder="Transfusion Volume (mL)" /> <br>
+                <select>
+                    <option value="">Age (Days)</option>
+                    <option value="range">0</option>
+                    <option value="range">1</option>
+                    <option value="range">2</option>
+                    <option value="range">3</option>
+                    <option value="range">4</option>
+                    <option value="range">5</option>
+                    <option value="range">6</option>
+                    <option value="range">7</option>
+                    <option value="range">8</option>
+                    <option value="range">9</option>
+                    <option value="range">10</option>
+                </select>               
+                <select>
+                    <option value="">Hemoglobin Level (g/dL)</option>
+                    <option value="range">0</option>
+                    <option value="range">1</option>
+                    <option value="range">2</option>
+                    <option value="range">3</option>
+                    <option value="range">4</option>
+                    <option value="range">5</option>
+                    <option value="range">6</option>
+                    <option value="range">7</option>
+                    <option value="range">8</option>
+                    <option value="range">9</option>
+                    <option value="range">10</option>
+                    <option value="range">11</option>
+                    <option value="range">12</option>
+                    <option value="range">13</option>
+                    <option value="range">14</option>
+                    <option value="range">15</option>
+                    <option value="range">16</option>
+                    <option value="range">17</option>
+                    <option value="range">18</option>
+                    <option value="range">19</option>
+                    <option value="range">20</option>
+                    <option value="range">21</option>
+                    <option value="range">22</option>
+                    <option value="range">23</option>
+                    <option value="range">24</option>
+                </select>
+                <input type="text" name="Transfusion Volume (mL)" required placeholder="Transfusion Volume (mL)" /> <br>
                 <button type="submit">Predict</button> <br>
             </form>
 
@@ -96,7 +149,7 @@
                 {{prediction_text}}
             </div>
                 <div class="back-button">
-                    <a href="{{ url_for('home') }}">Back to Home</a>
+                    <a href="{{ url_for('home') }}">Reset</a>
                 </div>
         </div>
     </div>
