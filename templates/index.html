@@ -99,48 +99,8 @@
     <div class="container">
         <div class="login">
             <form action="{{ url_for('predict')}}" method="post">
-                <select>
-                    <option value="">Age (Days)</option>
-                    <option value="range">0</option>
-                    <option value="range">1</option>
-                    <option value="range">2</option>
-                    <option value="range">3</option>
-                    <option value="range">4</option>
-                    <option value="range">5</option>
-                    <option value="range">6</option>
-                    <option value="range">7</option>
-                    <option value="range">8</option>
-                    <option value="range">9</option>
-                    <option value="range">10</option>
-                </select>               
-                <select>
-                    <option value="">Hemoglobin Level (g/dL)</option>
-                    <option value="range">0</option>
-                    <option value="range">1</option>
-                    <option value="range">2</option>
-                    <option value="range">3</option>
-                    <option value="range">4</option>
-                    <option value="range">5</option>
-                    <option value="range">6</option>
-                    <option value="range">7</option>
-                    <option value="range">8</option>
-                    <option value="range">9</option>
-                    <option value="range">10</option>
-                    <option value="range">11</option>
-                    <option value="range">12</option>
-                    <option value="range">13</option>
-                    <option value="range">14</option>
-                    <option value="range">15</option>
-                    <option value="range">16</option>
-                    <option value="range">17</option>
-                    <option value="range">18</option>
-                    <option value="range">19</option>
-                    <option value="range">20</option>
-                    <option value="range">21</option>
-                    <option value="range">22</option>
-                    <option value="range">23</option>
-                    <option value="range">24</option>
-                </select>
+                <input type="text" name="Age(in Days)" required placeholder="Age(in Days)" /> <br>
+                <input type="text" name="Hemoglobin Level (g/dL)" required placeholder="Hemoglobin Level (g/dL)">
                 <input type="text" name="Transfusion Volume (mL)" required placeholder="Transfusion Volume (mL)" /> <br>
                 <button type="submit">Predict</button> <br>
             </form>
